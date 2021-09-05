@@ -74,7 +74,7 @@ router.post('/login', withAuth, (req, res) => {
       req.session.username = userInfo.username;
       req.session.loggedIn = true;
   
-      res.json({ user: userInfo, message: 'You are now logged in!' });
+      res.json({ user: userInfo, message: 'You are logged in!' });
     });
   });
 });
