@@ -1,8 +1,9 @@
 const router = require('express').Router();
 const sequelize = require('../config/connection');
 const { Post, User, Comment } = require('../models');
+const withAuth = require('../utils/auth');
 
-router.get('/', (req, res) => {
+router.get('/', withAuth, (req, res) => {
   Post.findAll({
     attributes: [
       'id',
@@ -40,6 +41,7 @@ router.get('/', (req, res) => {
 });
 
 router.get('/login', (req, res) => {
+  console.log(req.session)
   if (req.session.loggedIn) {
     res.redirect('/');
     return;
