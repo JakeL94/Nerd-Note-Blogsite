@@ -1,5 +1,11 @@
 module.exports = {
+  format_date: date => {
+    return `${new Date(date).getMonth() + 1}/${new Date(date).getDate()}/${new Date(
+      date
+    ).getFullYear()}`;
+  },
     format_url: url => {
+      console.log(url);
         return url
         .replace('http://', '')
         .replace('https://', '')
@@ -13,10 +19,5 @@ module.exports = {
         }
         
         return word;
-    },
-    format_date: date => {
-      return `${new Date(date).getMonth() + 1}/${new Date(date).getDate()}/${new Date(
-        date
-      ).getFullYear()}`;
     }
   };
